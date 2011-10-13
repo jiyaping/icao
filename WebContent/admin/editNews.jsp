@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=gbk"
-    pageEncoding="UTF-8"%>
+    pageEncoding="utf-8"%>
 <%@ page import="edu.cafuc.bean.*" %>    
 <html>
 <head>

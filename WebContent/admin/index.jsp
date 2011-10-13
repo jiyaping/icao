@@ -79,7 +79,11 @@
     		<td><%=news.getTitle() %></td>
     		<td><%=news.shortContent() %></td>
     		<td><%=news.getPublishTime()%></td>
-    		<td><%=IntToCategory.transform(news.getCategory()) %></td>
+    		<%
+    		String str = IntToCategory.transform(news.getCategory());
+    		String c = new String(str.getBytes("gbk"),"utf-8");
+    		%>
+    		<td><%=c %></td>
     		<td><a href="viewNews?id=<%= news.getId() %>">显示</a></td>
     		<td><a href="updateNews?id=<%= news.getId() %>">编辑</a></td>
     		<td><a href="deleteNews?id=<%= news.getId() %>">删除</a></td>
