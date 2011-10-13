@@ -1,7 +1,6 @@
 package edu.cafuc.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -84,7 +83,7 @@ public class NewsDao {
 	//update a news
 	public static int updateNews(News news){
 		int result = 0;
-		String sql = "update xinwen(biaoti,riqi,neirong,fenlei) values(?,?,?,?,?) where id=?";
+		String sql = "update xinwen set biaoti=?,riqi=?,neirong=?,fenlei=? where id=?";
 		Connection conn = ConnUtil.getConnection();
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -92,6 +91,7 @@ public class NewsDao {
 			ps.setDate(2, news.getPublishTime());
 			ps.setString(3, news.getContent());
 			ps.setInt(4, news.getCategory());
+			ps.setInt(5, news.getId());
 			result = ps.executeUpdate();
 			conn.close();
 		} catch (SQLException e) {
@@ -141,8 +141,8 @@ public class NewsDao {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, category);
 			rs = ps.executeQuery();
-			News news = new News();
 			while(rs.next()){
+				News news = new News();
 				news.setTitle(rs.getString("biaoti"));
 				news.setPublishTime(rs.getDate("riqi"));
 				news.setContent(rs.getString("neirong"));
@@ -176,11 +176,11 @@ public class NewsDao {
 				this.currentPage = 1;
 			if(this.currentPage>totalPage)
 				this.currentPage = totalPage;
-			for(int i=0;i<currentPage*(pageSize - 1); i++)
+			for(int i=0;i<(currentPage-1)*pageSize; i++)
 				rs.next();
 			for(int i=0; i<pageSize; i++){
-				News news = new News();
 				if(rs.next()){
+					News news = new News();
 					news.setTitle(rs.getString("biaoti"));
 					news.setPublishTime(rs.getDate("riqi"));
 					news.setContent(rs.getString("neirong"));
@@ -225,15 +225,28 @@ public class NewsDao {
 	
 	
 	public static void main(String args[]){
-		/*
-		News n = new News();
-		n.setTitle("test");
-		n.setCategory(1);
-		n.setPublishTime(new Date(2011, 10, 10));
-		boolean isOK = NewsDao.addNews(n);
-		System.out.println(NewsDao.deleteById(1));*/
-//		System.out.println(NewsDao.getNewsById(2));
+		
+//		News n = new News();
+//		n.setTitle("goodtesttest");
+//		n.setCategory(1);
+//		n.setPublishTime(new Date(2011, 10, 10));
+//		n.setContent("just a test");
+//		n.setId(3);
+//		boolean isOK = NewsDao.addNews(n);
+//		System.out.println(NewsDao.deleteById(1));
+//		System.out.println(NewsDao.getNewsById(3));
 //		System.out.println(NewsDao.getNewsByCategory(2).size());
 //		NewsDao.getSize();
+//		System.out.println(NewsDao.updateNews(n));
+		
+//		List<News> lists = NewsDao.getNewsByCategory(1);
+//		for(int i=0; i<lists.size(); i++){
+//			System.out.println(lists.get(i));
+//		}
+		
+		NewsDao nd = new NewsDao();
+		nd.prepareQuery();
+		System.out.println(nd.getTotalPage());
+		
 	}
 }

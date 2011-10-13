@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>icao</display-name>
+  <servlet>
+    <servlet-name>showNews</servlet-name>
+    <servlet-class>edu.cafuc.servlet.ShowNews</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>showNews</servlet-name>
+    <url-pattern>/admin/showNews</url-pattern>
+  </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -9,4 +17,54 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>AddNews</display-name>
+    <servlet-name>AddNews</servlet-name>
+    <servlet-class>edu.cafuc.servlet.AddNews</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddNews</servlet-name>
+    <url-pattern>/admin/addNews</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteNews</display-name>
+    <servlet-name>DeleteNews</servlet-name>
+    <servlet-class>edu.cafuc.servlet.DeleteNews</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteNews</servlet-name>
+    <url-pattern>/admin/deleteNews</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewNews</display-name>
+    <servlet-name>ViewNews</servlet-name>
+    <servlet-class>edu.cafuc.servlet.ViewNews</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewNews</servlet-name>
+    <url-pattern>/admin/viewNews</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewByCategory</display-name>
+    <servlet-name>ViewByCategory</servlet-name>
+    <servlet-class>edu.cafuc.servlet.ViewByCategory</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewByCategory</servlet-name>
+    <url-pattern>/admin/viewCategory</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateNews</display-name>
+    <servlet-name>UpdateNews</servlet-name>
+    <servlet-class>edu.cafuc.servlet.UpdateNews</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateNews</servlet-name>
+    <url-pattern>/admin/updateNews</url-pattern>
+  </servlet-mapping>
 </web-app>

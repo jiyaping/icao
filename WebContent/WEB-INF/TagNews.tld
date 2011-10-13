@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+ 
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+                        web-jsptaglibrary_2_0.xsd" 
+    version="2.0"> 
+    
+    <description>Tag Demo</description> 
+    <tlib-version>1.0</tlib-version> 
+    <jsp-version>2.0</jsp-version> 
+    <short-name>TagNews</short-name> 
+    <uri>/TagNews</uri> 
+
+    <tag> 
+        <description>Test tag</description> 
+        <name>TestTag</name> 
+        <tag-class>edu.cafuc.test.TestTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+        	<name>params</name>
+        	<required>false</required>
+        </attribute> 
+    </tag>
+     
+	<tag>
+		<description>show news by category</description>
+		<name>ShowByCategory</name>
+		<body-content>empty</body-content>
+		<tag-class>edu.cafuc.utils.TagShowNews</tag-class>
+		<attribute>
+			<name>category</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<name>number</name>
+			<required>false</required>
+		</attribute>
+	</tag>
+</taglib> 

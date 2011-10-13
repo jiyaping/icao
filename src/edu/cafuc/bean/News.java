@@ -1,8 +1,9 @@
 package edu.cafuc.bean;
 
 import java.sql.Date;
+import java.util.Comparator;
 
-public class News {
+public class News implements Comparator<News>{
 	private String title;
 	private String content;
 	private Date publishTime;
@@ -41,9 +42,23 @@ public class News {
 		this.category = category;
 	}
 	
+	public String shortContent(){
+		if(content==null){
+			content = "";
+		}
+		if(content.length()>20){
+			return content.substring(0, 20)+" ... ";
+		}else{
+			return content;
+		}
+	}
 	@Override
 	public String toString() {
 		return "id="+id+" title="+title +" content="+content+"....";
+	}
+	@Override
+	public int compare(News o1, News o2) {
+		return o1.getPublishTime().compareTo(o2.getPublishTime());
 	}
 }
 

@@ -13,6 +13,8 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/home/jiyaping/下载/200761016285615/200761016285615/jspdev/jspdev/WebRoot/WEB-INF/lib/ms_sql2k_jdbc.jar"/>
+	<classpathentry kind="lib" path="/home/jiyaping/drive/msbase.jar"/>
+	<classpathentry kind="lib" path="/home/jiyaping/drive/mssqlserver.jar"/>
+	<classpathentry kind="lib" path="/home/jiyaping/drive/msutil.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

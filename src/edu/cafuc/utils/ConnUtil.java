@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 public class ConnUtil {
 	public static Connection getConnection(){
 		Connection conn = null;
-		String url="jdbc:microsoft:sqlserver://110.189.221.129:1433;DatabaseName=db_icao";
+		String url="jdbc:microsoft:sqlserver://182.132.31.224:1433;DatabaseName=db_icao";
 		String username = "sa";
 		String password = "123321";
 		try {
